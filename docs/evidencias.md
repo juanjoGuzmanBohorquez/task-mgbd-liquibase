@@ -1,0 +1,28 @@
+juanjoseguzmanbohorquez@Juans-MacBook-Pro task-mgbd-liquibase % docker compose exec db psql -U postgres -d mgbd_liquibase -c "\dt"
+
+                 List of relations
+ Schema |         Name          | Type  |  Owner   
+--------+-----------------------+-------+----------
+ public | databasechangelog     | table | postgres
+ public | databasechangeloglock | table | postgres
+ public | detalle_factura       | table | postgres
+ public | factura               | table | postgres
+ public | persona               | table | postgres
+ public | producto              | table | postgres
+ public | rol                   | table | postgres
+ public | usuario               | table | postgres
+(8 rows)
+
+juanjoseguzmanbohorquez@Juans-MacBook-Pro task-mgbd-liquibase % docker compose exec db psql -U postgres -d mgbd_liquibase -c "SELECT * FROM persona;"
+
+ id |           nombre           | documento  
+----+----------------------------+------------
+  2 | Danna Guzman               | 1075000222
+  1 | Juan Jose Guzman Bohorquez | 1075000111
+
+  juanjoseguzmanbohorquez@Juans-MacBook-Pro task-mgbd-liquibase % docker compose exec db psql -U postgres -d mgbd_liquibase -c "SELECT * FROM factura;"
+
+ id | fecha | persona_id 
+----+-------+------------
+(0 rows)
+
