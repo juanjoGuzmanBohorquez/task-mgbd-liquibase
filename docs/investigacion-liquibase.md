@@ -1,26 +1,109 @@
-# Investigación: Gestión de Base de Datos con Liquibase
+# 📚 Conceptos Básicos de Liquibase y Bases de Datos
 
-**Estudiante:** Juan Jose Guzman
-**Materia:** Modelado y Gestión de Base de Datos
-**Institución:** Universidad Corhuila
+## Liquibase
+
+Liquibase es una herramienta de control de versiones para bases de datos. Permite gestionar cambios en la estructura de la base de datos de forma automática, segura y ordenada, similar a cómo Git controla el código.
+
+---
+
+##  Changelog
+
+El **changelog** es un archivo (generalmente en XML, YAML, JSON o SQL) donde se definen todos los cambios que se aplicarán a la base de datos.
+Es el historial completo de modificaciones.
 
 ---
 
-## 1. Conceptos de Infraestructura y Despliegue
+##  Changeset
 
-*   **Docker Compose:** Es una herramienta que permite definir y ejecutar aplicaciones multi-contenedor. En nuestro proyecto, facilita el despliegue del motor PostgreSQL y la herramienta Liquibase de forma coordinada.
-*   **Migraciones de Base de Datos:** Es la práctica de aplicar cambios de esquema (tablas, columnas) de manera incremental y reversible, permitiendo que la base de datos evolucione junto con el código del software.
+Un **changeset** es una unidad de cambio dentro del changelog.
+Cada changeset representa una modificación específica, por ejemplo:
 
-## 2. Definiciones de Liquibase
+* Crear una tabla
+* Insertar datos
+* Modificar columnas
 
-*   **Liquibase:** Es una solución de código abierto para la gestión del ciclo de vida del esquema de bases de datos, que permite automatizar y versionar los cambios.
-*   **Changelog:** Es el archivo principal que actúa como índice o registro maestro. En él se listan todos los archivos de cambios que deben ejecutarse.
-*   **Changeset:** Es la unidad básica de cambio. Cada bloque de código SQL dentro de Liquibase se identifica como un changeset único (autor e ID) para evitar que se ejecute dos veces.
-*   **Rollback:** Es la capacidad de deshacer o revertir un cambio aplicado. Si una migración falla o se requiere volver atrás, el rollback restaura el estado anterior de la base de datos.
-
-## 3. Lenguajes de Consulta y Estructura
-
-*   **DDL (Data Definition Language):** Lenguaje orientado a la definición de estructuras. Se utiliza para crear, modificar o eliminar objetos de la base de datos (tablas, índices, llaves primarias).
-*   **DML (Data Manipulation Language):** Lenguaje orientado a la manipulación de los datos almacenados. Permite insertar nuevos registros, actualizar los existentes o borrarlos.
+Cada uno tiene un identificador único para evitar que se ejecute más de una vez.
 
 ---
+
+##  Rollback
+
+El **rollback** permite deshacer cambios realizados en la base de datos.
+Es útil cuando ocurre un error o se necesita volver a una versión anterior.
+
+Ejemplo:
+
+* Eliminar una tabla creada
+* Revertir una inserción de datos
+
+---
+
+##  DDL (Data Definition Language)
+
+El DDL es el conjunto de instrucciones que se utilizan para definir la estructura de la base de datos.
+
+Ejemplos:
+
+```sql
+CREATE TABLE persona (...);
+ALTER TABLE persona ADD columna;
+DROP TABLE persona;
+```
+
+---
+
+## DML (Data Manipulation Language)
+
+El DML se utiliza para manipular los datos dentro de las tablas.
+
+Ejemplos:
+
+```sql
+INSERT INTO persona VALUES (...);
+UPDATE persona SET nombre = 'Juan';
+DELETE FROM persona WHERE id = 1;
+SELECT * FROM persona;
+```
+
+---
+
+## Docker Compose
+
+Docker Compose es una herramienta que permite definir y ejecutar múltiples contenedores Docker usando un archivo (`docker-compose.yml`).
+
+Permite:
+
+* Levantar bases de datos fácilmente
+* Configurar servicios automáticamente
+* Ejecutar todo con un solo comando
+
+Ejemplo:
+
+```bash
+docker compose up -d
+```
+
+---
+
+##  Migraciones de Base de Datos
+
+Las **migraciones** son cambios controlados en la estructura o datos de la base de datos a lo largo del tiempo.
+
+Permiten:
+
+* Mantener consistencia entre entornos (desarrollo, pruebas, producción)
+* Versionar la base de datos
+* Automatizar despliegues
+
+Liquibase es una herramienta que facilita este proceso mediante changelogs y changesets.
+
+---
+
+##  Conclusión
+
+Estos conceptos son fundamentales para trabajar con bases de datos modernas, ya que permiten:
+
+* Control de versiones
+* Automatización
+* Seguridad en cambios
+* Trabajo en equipo eficiente
