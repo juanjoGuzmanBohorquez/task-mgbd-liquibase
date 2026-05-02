@@ -1,4 +1,7 @@
-juanjoseguzmanbohorquez@Juans-MacBook-Pro task-mgbd-liquibase % docker compose exec db psql -U postgres -d mgbd_liquibase -c "\dt"
+## 📌 Evidencia de tablas creadas
+
+```bash
+docker compose exec db psql -U postgres -d mgbd_liquibase -c "\dt"
 
                  List of relations
  Schema |         Name          | Type  |  Owner   
@@ -12,17 +15,28 @@ juanjoseguzmanbohorquez@Juans-MacBook-Pro task-mgbd-liquibase % docker compose e
  public | rol                   | table | postgres
  public | usuario               | table | postgres
 (8 rows)
+```
 
-juanjoseguzmanbohorquez@Juans-MacBook-Pro task-mgbd-liquibase % docker compose exec db psql -U postgres -d mgbd_liquibase -c "SELECT * FROM persona;"
+
+## 📌 Datos en la tabla persona
+
+```bash
+SELECT * FROM persona;
 
  id |           nombre           | documento  
 ----+----------------------------+------------
   2 | Danna Guzman               | 1075000222
   1 | Juan Jose Guzman Bohorquez | 1075000111
+```
 
-  juanjoseguzmanbohorquez@Juans-MacBook-Pro task-mgbd-liquibase % docker compose exec db psql -U postgres -d mgbd_liquibase -c "SELECT * FROM factura;"
+
+
+## 📌 Consulta de factura
+
+```bash
+SELECT * FROM factura;
 
  id | fecha | persona_id 
 ----+-------+------------
 (0 rows)
-
+```
