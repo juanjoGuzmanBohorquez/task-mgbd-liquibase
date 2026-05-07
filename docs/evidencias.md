@@ -25,7 +25,7 @@ SELECT * FROM persona;
 
  id |           nombre           | documento  
 ----+----------------------------+------------
-  2 | Danna Guzman               | 1075000222
+  2 | Mbappe                      | 1075000222
   1 | Juan Jose Guzman Bohorquez | 1075000111
 ```
 
@@ -56,6 +56,6 @@ JOIN persona p ON f.persona_id = p.id;
 
  factura_nro |           fecha            |           cliente            | documento  
 -------------+----------------------------+------------------------------+------------
-           2 | 2026-05-07 20:13:56.270899 | Danna Guzman                 | 1075000222
+           2 | 2026-05-07 20:13:56.270899 | Mbappe                       | 1075000222
 (1 row)
 ```
