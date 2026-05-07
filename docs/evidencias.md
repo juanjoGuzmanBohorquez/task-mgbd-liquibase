@@ -36,7 +36,26 @@ SELECT * FROM persona;
 ```bash
 SELECT * FROM factura;
 
- id | fecha | persona_id 
-----+-------+------------
-(0 rows)
+ id |           fecha            | persona_id 
+----+----------------------------+------------
+  2 | 2026-05-07 20:13:56.270899 |          1
+(1 row)
+```
+
+
+## 📌 Consulta de facturas con JOIN (cliente)
+
+```bash
+SELECT 
+    f.id AS factura_nro, 
+    f.fecha, 
+    p.nombre AS cliente, 
+    p.documento
+FROM factura f
+JOIN persona p ON f.persona_id = p.id;
+
+ factura_nro |           fecha            |           cliente            | documento  
+-------------+----------------------------+------------------------------+------------
+           2 | 2026-05-07 20:13:56.270899 | Juan Jose Guzman Bohorquez   | 1075000111
+(1 row)
 ```

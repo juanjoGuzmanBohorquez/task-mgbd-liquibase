@@ -18,5 +18,5 @@ databaseChangeLog:
       file: db/changelog/dml/001-insert-data.sql
   - include:
       file: db/changelog/dml/002-update-data.sql
-  - include:
-      file: db/changelog/dml/003-delete-data.sql
+  # - include:
+  #     file: db/changelog/dml/003-delete-data.sql
